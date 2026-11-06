@@ -15,6 +15,13 @@ RUN pnpm --filter api db:generate && pnpm --filter api build
 RUN pnpm --filter api deploy --prod --ignore-scripts /out \
     && cp -r apps/api/dist /out/dist
 
+# One-shot job: applies pending migrations. Needs the Prisma CLI, which the runtime image omits.
+FROM build AS migrate
+ENV NODE_ENV=production
+WORKDIR /repo/apps/api
+USER node
+CMD ["node_modules/.bin/prisma", "migrate", "deploy"]
+
 FROM node:24-alpine AS runtime
 ENV NODE_ENV=production
 WORKDIR /app
