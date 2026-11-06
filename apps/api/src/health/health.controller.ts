@@ -1,8 +1,10 @@
 import { Controller, Get, Logger, ServiceUnavailableException } from '@nestjs/common';
 import { ApiOkResponse, ApiServiceUnavailableResponse, ApiTags } from '@nestjs/swagger';
+import { Public } from '../auth/decorators/public.decorator';
 import { PrismaService } from '../prisma/prisma.service';
 import { HealthResponseDto } from './health.dto';
 
+@Public()
 @ApiTags('health')
 @Controller('health')
 export class HealthController {
