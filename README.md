@@ -1,7 +1,7 @@
 # Splitly
 
 Group expense splitting app: NestJS API with independent React and Angular frontends that share one
-OpenAPI contract. Work in progress; see [PLAN.md](PLAN.md) for the roadmap.
+OpenAPI contract. Work in progress.
 
 ## Requirements
 

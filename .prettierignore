@@ -5,11 +5,4 @@ coverage
 pnpm-lock.yaml
 packages/api-client/src
 **/generated
-CLAUDE.md
-PLAN.md
 packages/api-client/openapi.json
-**/.agents
-**/.cursor
-**/.devin
-**/.claude
-AGENTS.md

@@ -9,8 +9,8 @@
     "test:integration": "pnpm --filter api test:integration",
     "test:e2e": "pnpm -r --if-present test:e2e",
     "check": "pnpm lint && pnpm typecheck && pnpm test",
-    "format": "prettier --write .",
-    "format:check": "prettier --check .",
+    "format": "prettier --write . --ignore-path .gitignore --ignore-path .prettierignore --ignore-path .git/info/exclude",
+    "format:check": "prettier --check . --ignore-path .gitignore --ignore-path .prettierignore --ignore-path .git/info/exclude",
     "gen:api-client": "pnpm --filter api openapi:export && pnpm --filter @splitly/api-client generate"
   },
   "license": "MIT",
