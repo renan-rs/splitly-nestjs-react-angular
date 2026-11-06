@@ -1,9 +1,15 @@
 packages:
- - 'apps/*'
- - 'packages/*'
+  - 'apps/*'
+  - 'packages/*'
 allowBuilds:
   '@parcel/watcher': true
+  '@scarf/scarf': false
   esbuild: true
+  cpu-features: false
+  lmdb: false
+  msgpackr-extract: false
+  protobufjs: false
+  ssh2: false
   workerd: true
 minimumReleaseAgeExclude:
- - lucide-react@1.69.0
+  - lucide-react@1.69.0

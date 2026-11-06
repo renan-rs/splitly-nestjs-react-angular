@@ -1,11 +1,11 @@
-import { Button } from './components/ui/button'
+import { Button } from './components/ui/button';
 
 function App() {
   return (
     <div className="flex min-h-svh items-center justify-center">
       <Button>Funcionou</Button>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

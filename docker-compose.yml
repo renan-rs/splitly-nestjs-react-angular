@@ -1,0 +1,52 @@
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: splitly
+      POSTGRES_DB: splitly
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in the root .env file}
+    ports:
+      - '5432:5432'
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U splitly -d splitly']
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      DATABASE_URL: postgresql://splitly:${POSTGRES_PASSWORD}@db:5432/splitly?schema=public
+      CORS_ORIGINS: http://localhost:5173,http://localhost:4200
+    ports:
+      - '3000:3000'
+    depends_on:
+      db:
+        condition: service_healthy
+
+  web-react:
+    build:
+      context: .
+      dockerfile: apps/web-react/Dockerfile
+    ports:
+      - '5173:8080'
+    depends_on:
+      - api
+
+  web-angular:
+    build:
+      context: .
+      dockerfile: apps/web-angular/Dockerfile
+    ports:
+      - '4200:8080'
+    depends_on:
+      - api
+
+volumes:
+  db-data:

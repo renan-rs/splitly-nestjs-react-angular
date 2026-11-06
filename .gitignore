@@ -21,3 +21,5 @@ test-results/
 .DS_Store
 Thumbs.db
 .idea/
+# incremental TypeScript build info
+*.tsbuildinfo
