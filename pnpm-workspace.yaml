@@ -4,10 +4,12 @@ packages:
 allowBuilds:
   '@parcel/watcher': true
   '@scarf/scarf': false
+  '@prisma/engines': true
   esbuild: true
   cpu-features: false
   lmdb: false
   msgpackr-extract: false
+  prisma: true
   protobufjs: false
   ssh2: false
   workerd: true
