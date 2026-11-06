@@ -1,0 +1,9 @@
+packages:
+ - 'apps/*'
+ - 'packages/*'
+allowBuilds:
+  '@parcel/watcher': true
+  esbuild: true
+  workerd: true
+minimumReleaseAgeExclude:
+ - lucide-react@1.69.0

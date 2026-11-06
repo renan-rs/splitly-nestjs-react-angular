@@ -1,0 +1,23 @@
+# dependências e builds
+node_modules/
+dist/
+coverage/
+.angular/
+
+# variáveis de ambiente (o .env.example deve ser commitado)
+.env
+.env.*
+!.env.example
+
+# client gerado pelo Prisma 7 (é recriado com "prisma generate")
+**/generated/prisma/
+
+# testes e2e
+playwright-report/
+test-results/
+
+# sistema / editor
+*.log
+.DS_Store
+Thumbs.db
+.idea/
